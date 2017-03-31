@@ -96,7 +96,7 @@
           <ion-grid>
             <ion-row>
               <ion-col col-4 *ngFor="let l of user.label">
-                <ion-chip>
+                <ion-chip (click)="removeTagLabel(l)">
                   <ion-icon name="close"></ion-icon>
                   <ion-label>{{ l }}</ion-label>
                 </ion-chip>
@@ -128,7 +128,7 @@
           <ion-grid>
             <ion-row>
               <ion-col col-4 *ngFor="let l of user.lifestyle">
-                <ion-chip>
+                <ion-chip (click)="removeTagLifestyle(l)">
                   <ion-icon name="close"></ion-icon>
                   <ion-label>{{ l }}</ion-label>
                 </ion-chip>

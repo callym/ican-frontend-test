@@ -157,4 +157,20 @@ export class HomePage {
 
   addTagExistingLabel = (name) => this.addTagExisting(name, 'label');
   addTagExistingLifestyle = (name) => this.addTagExisting(name, 'lifestyle');
+
+  removeTag(name: String, p: String) {
+    var index = this.user[`${p}`].indexOf(name);
+    if (index !== -1) {
+      this.user[`${p}`].splice(index, 1);
+    }
+
+    for (var l in this[`${p}_data`]) {
+      if (this[`${p}_data`][l].name === name) {
+        this[`${p}_data`][l].added = false;
+      }
+    }
+  }
+
+  removeTagLabel = (name) => this.removeTag(name, 'label');
+  removeTagLifestyle = (name) => this.removeTag(name, 'lifestyle');
 }
