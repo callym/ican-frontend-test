@@ -97,4 +97,26 @@ export class HomePage {
     var json_user = JSON.stringify(this.user, null, 2);
     console.log(json_user);
   }
+
+  // need to unlock and re-lock swiping
+  // so will wrap in this function so we
+  // can't forget to do that!
+  do_slide(forwards: Boolean) {
+    // we lock the swipe to stop people progressing
+    // through the form when they haven't filled it in
+    // so first we have to unlock it
+    this.slider.lockSwipes(false);
+    forwards == true ? this.slider.slideNext() : this.slider.slidePrev();
+    this.slider.lockSwipes(true);
+  }
+
+  next() {
+    this.print_user();
+    this.do_slide(true);
+  }
+
+  previous() {
+    this.print_user();
+    this.do_slide(false);
+  }
 }
