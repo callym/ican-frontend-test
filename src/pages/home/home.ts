@@ -14,6 +14,9 @@ export class HomePage {
 
   slide_one_form: FormGroup;
 
+  slide_two_label: FormGroup;
+  slide_two_lifestyle: FormGroup;
+
   user: {
     name: String,
     date_of_birth: String,
@@ -82,6 +85,14 @@ export class HomePage {
       current_major: ['', Validators.required],
       current_gpa: ['', Validators.required]
     });
+
+    this.slide_two_label = form_builder.group({
+      label: ['']
+    });
+
+    this.slide_two_lifestyle = form_builder.group({
+      lifestyle: ['']
+    });
   }
 
   ngAfterViewInit() {
@@ -144,5 +155,47 @@ export class HomePage {
   previous() {
     this.print_user();
     this.do_slide(false);
+  }
+
+  addTagExisting(name: String, p: String) {
+    for (var l in this[`${p}_data`]) {
+      if (this[`${p}_data`][l].name === name) {
+        this[`${p}_data`][l].added = true;
+        this.user[`${p}`].push(name);
+      }
+    }
+  }
+
+  addTagExistingLabel = (name) => this.addTagExisting(name, 'label');
+  addTagExistingLifestyle = (name) => this.addTagExisting(name, 'lifestyle');
+
+  removeTag(name: String, p: String) {
+    var index = this.user[`${p}`].indexOf(name);
+    if (index !== -1) {
+      this.user[`${p}`].splice(index, 1);
+    }
+
+    for (var l in this[`${p}_data`]) {
+      if (this[`${p}_data`][l].name === name) {
+        this[`${p}_data`][l].added = false;
+      }
+    }
+  }
+
+  removeTagLabel = (name) => this.removeTag(name, 'label');
+  removeTagLifestyle = (name) => this.removeTag(name, 'lifestyle');
+
+  addTagNew(p: String) {
+    var v = this[`slide_two_${p}`].value[`${p}`];
+    this.user[`${p}`].push(v);
+    this[`slide_two_${p}`].controls[`${p}`].setValue('');
+  }
+
+  addTagNewLabel = () => this.addTagNew('label');
+  addTagNewLifestyle = () => this.addTagNew('lifestyle');
+
+  slideTwoValid(): Boolean {
+    return (this.user.label.length > 0 &&
+      this.user.lifestyle.length > 0);
   }
 }

@@ -90,6 +90,78 @@
 
     <!-- Second Slide - (Labels & Lifestyle) -->
     <ion-slide>
+      <ion-card>
+        <!-- Form section for Labels -->
+        <form [formGroup]="slide_two_label" (ngSubmit)="addTagNewLabel()">
+          <ion-grid>
+            <ion-row>
+              <ion-col col-4 *ngFor="let l of user.label">
+                <ion-chip (click)="removeTagLabel(l)">
+                  <ion-icon name="close"></ion-icon>
+                  <ion-label>{{ l }}</ion-label>
+                </ion-chip>
+              </ion-col>
+              <ion-col col-8>
+                <ion-input
+                  formControlName="label"
+                  type="text"
+                  placeholder="Choose your own label...">
+                </ion-input>
+              </ion-col>
+          </ion-row>
+          </ion-grid>
+        </form>
+      </ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4 *ngFor="let l of label_data">
+            <ion-chip (click)="addTagExistingLabel(l.name)" [hidden]="l.added">
+              <ion-icon name="add"></ion-icon>
+              <ion-label>{{ l.name }}</ion-label>
+            </ion-chip>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <!-- Form section for Lifestyles -->
+      <ion-card>
+        <form [formGroup]="slide_two_lifestyle" (ngSubmit)="addTagNewLifestyle()">
+          <ion-grid>
+            <ion-row>
+              <ion-col col-4 *ngFor="let l of user.lifestyle">
+                <ion-chip (click)="removeTagLifestyle(l)">
+                  <ion-icon name="close"></ion-icon>
+                  <ion-label>{{ l }}</ion-label>
+                </ion-chip>
+              </ion-col>
+              <ion-col col-8>
+                <ion-input
+                  formControlName="lifestyle"
+                  type="text"
+                  placeholder="Choose your preferred lifestyle...">
+                </ion-input>
+              </ion-col>
+          </ion-row>
+          </ion-grid>
+        </form>
+      </ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4 *ngFor="let l of lifestyle_data">
+            <ion-chip (click)="addTagExistingLifestyle(l.name)" [hidden]="l.added">
+              <ion-icon name="add"></ion-icon>
+              <ion-label>{{ l.name }}</ion-label>
+            </ion-chip>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <button ion-button
+        large
+        block
+        (click)="previous()"
+        [disabled]="!slideTwoValid()">
+          Go
+      </button>
     </ion-slide>
   </ion-slides>
 </ion-content>
