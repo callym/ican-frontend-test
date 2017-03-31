@@ -193,4 +193,9 @@ export class HomePage {
 
   addTagNewLabel = () => this.addTagNew('label');
   addTagNewLifestyle = () => this.addTagNew('lifestyle');
+
+  slideTwoValid(): Boolean {
+    return (this.user.label.length > 0 &&
+      this.user.lifestyle.length > 0);
+  }
 }

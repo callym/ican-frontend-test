@@ -157,7 +157,9 @@
       </ion-grid>
       <button ion-button
         large
-        block>
+        block
+        (click)="previous()"
+        [disabled]="!slideTwoValid()">
           Go
       </button>
     </ion-slide>
