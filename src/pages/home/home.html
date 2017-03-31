@@ -1,18 +1,18 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      title
+      {{ title }}
     </ion-title>
   </ion-toolbar>
   <ion-toolbar>
     <ion-title>
-      subtitle
+      {{ subtitle }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-slides #slider pager="true">
+  <ion-slides #slider pager="true" (ionSlideWillChange)="onSlideChangeStart()">
     <!-- First Slide - (Basic Information) -->
     <ion-slide>
     </ion-slide>

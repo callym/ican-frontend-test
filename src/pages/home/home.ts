@@ -74,5 +74,23 @@ export class HomePage {
 
   ngAfterViewInit() {
     this.slider.lockSwipes(true);
+    this.onSlideChangeStart();
   }
+
+  onSlideChangeStart() {
+    let current_index = this.slider.getActiveIndex();
+
+    if (current_index === undefined) {
+      current_index = 0;
+    }
+
+    if (current_index === 0) {
+      this.title = "Basic Information";
+      this.subtitle = "Get your UniPanda 🐼";
+    } else {
+      this.title = "Tell us more about you";
+      this.subtitle = "Help us to personalise your assistant";
+    }
+  }
+
 }
