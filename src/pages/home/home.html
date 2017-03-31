@@ -15,6 +15,77 @@
   <ion-slides #slider pager="true" (ionSlideWillChange)="onSlideChangeStart()">
     <!-- First Slide - (Basic Information) -->
     <ion-slide>
+      <form [formGroup]="slide_one_form">
+        <ion-card>
+          <ion-item>
+            <ion-label fixed>Name</ion-label>
+            <ion-input formControlName="name" type="text"></ion-input>
+          </ion-item>
+        </ion-card>
+        <ion-card>
+          <ion-item>
+            <ion-label>DOB</ion-label>
+            <ion-datetime
+              formControlName="date_of_birth"
+              displayFormat="DD/MM/YYYY"
+              pickerFormat="DD MMMM YYYY">
+            </ion-datetime>
+          </ion-item>
+        </ion-card>
+        <ion-card>
+          <ion-item>
+            <ion-label fixed>Gender</ion-label>
+            <ion-select formControlName="gender">
+              <ion-option *ngFor="let g of gender_data" value="{{ g }}">
+                {{ g }}
+              </ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-card>
+        <ion-card>
+          <ion-item>
+            <ion-label fixed>Nationality</ion-label>
+            <ion-select formControlName="nationality">
+              <ion-option *ngFor="let n of nationality_data" value="{{ n }}">
+                {{ n }}
+              </ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-card>
+        <ion-card>
+          <ion-item>
+            <ion-label fixed>Current School</ion-label>
+            <ion-input formControlName="current_school" type="text"></ion-input>
+          </ion-item>
+        </ion-card>
+        <ion-card>
+          <ion-item>
+            <ion-label fixed>Current Major</ion-label>
+            <ion-input formControlName="current_major" type="text"></ion-input>
+          </ion-item>
+        </ion-card>
+        <ion-card>
+          <ion-item>
+            <ion-label fixed>Current GPA</ion-label>
+            <!-- not sure what range a GPA goes,
+              so this is just what I'd consider
+              a sensible limit -->
+            <ion-input
+              formControlName="current_gpa"
+              type="number"
+              min="0"
+              max="100">
+            </ion-input>
+          </ion-item>
+        </ion-card>
+      </form>
+      <button ion-button
+        large
+        block
+        (click)="next()"
+        [disabled]="!slide_one_form.valid">
+          Continue
+      </button>
     </ion-slide>
 
     <!-- Second Slide - (Labels & Lifestyle) -->
