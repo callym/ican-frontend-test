@@ -92,7 +92,7 @@
     <ion-slide>
       <ion-card>
         <!-- Form section for Labels -->
-        <form>
+        <form [formGroup]="slide_two_label" (ngSubmit)="addTagNewLabel()">
           <ion-grid>
             <ion-row>
               <ion-col col-4 *ngFor="let l of user.label">
@@ -103,6 +103,7 @@
               </ion-col>
               <ion-col col-8>
                 <ion-input
+                  formControlName="label"
                   type="text"
                   placeholder="Choose your own label...">
                 </ion-input>
@@ -124,7 +125,7 @@
 
       <!-- Form section for Lifestyles -->
       <ion-card>
-        <form>
+        <form [formGroup]="slide_two_lifestyle" (ngSubmit)="addTagNewLifestyle()">
           <ion-grid>
             <ion-row>
               <ion-col col-4 *ngFor="let l of user.lifestyle">
@@ -135,6 +136,7 @@
               </ion-col>
               <ion-col col-8>
                 <ion-input
+                  formControlName="lifestyle"
                   type="text"
                   placeholder="Choose your preferred lifestyle...">
                 </ion-input>

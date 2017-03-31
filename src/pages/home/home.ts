@@ -14,6 +14,9 @@ export class HomePage {
 
   slide_one_form: FormGroup;
 
+  slide_two_label: FormGroup;
+  slide_two_lifestyle: FormGroup;
+
   user: {
     name: String,
     date_of_birth: String,
@@ -81,6 +84,14 @@ export class HomePage {
       current_school: ['', Validators.required],
       current_major: ['', Validators.required],
       current_gpa: ['', Validators.required]
+    });
+
+    this.slide_two_label = form_builder.group({
+      label: ['']
+    });
+
+    this.slide_two_lifestyle = form_builder.group({
+      lifestyle: ['']
     });
   }
 
@@ -173,4 +184,13 @@ export class HomePage {
 
   removeTagLabel = (name) => this.removeTag(name, 'label');
   removeTagLifestyle = (name) => this.removeTag(name, 'lifestyle');
+
+  addTagNew(p: String) {
+    var v = this[`slide_two_${p}`].value[`${p}`];
+    this.user[`${p}`].push(v);
+    this[`slide_two_${p}`].controls[`${p}`].setValue('');
+  }
+
+  addTagNewLabel = () => this.addTagNew('label');
+  addTagNewLifestyle = () => this.addTagNew('lifestyle');
 }
