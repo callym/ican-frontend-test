@@ -123,6 +123,20 @@ export class HomePage {
   }
 
   next() {
+    // there doesn't seem to be a nice way of 
+    // just copying the form.value object
+    // into the this.user object by value,
+    // but just copying the properties
+    // manually works fine here!
+    var v = this.slide_one_form.value;
+    this.user.name = v.name;
+    this.user.date_of_birth = v.date_of_birth;
+    this.user.gender = v.gender;
+    this.user.nationality = v.nationality;
+    this.user.current_school = v.current_school;
+    this.user.current_major = v.current_major;
+    this.user.current_gpa = v.current_gpa;
+
     this.print_user();
     this.do_slide(true);
   }
