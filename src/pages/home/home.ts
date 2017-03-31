@@ -135,7 +135,12 @@ export class HomePage {
     this.user.nationality = v.nationality;
     this.user.current_school = v.current_school;
     this.user.current_major = v.current_major;
-    this.user.current_gpa = v.current_gpa;
+    // if we don't cast to a Number then
+    // the JSON object has current_gpa
+    // as a string?
+    // I think this should be safe to do because
+    // current_gpa is a type="number" input?
+    this.user.current_gpa = Number(v.current_gpa);
 
     this.print_user();
     this.do_slide(true);
