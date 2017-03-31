@@ -82,7 +82,8 @@
       <button ion-button
         large
         block
-        (click)="next()">
+        (click)="next()"
+        [disabled]="!slide_one_form.valid">
           Continue
       </button>
     </ion-slide>
