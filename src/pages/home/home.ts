@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Slides } from 'ionic-angular';
 
 @Component({
@@ -11,6 +11,8 @@ export class HomePage {
 
   title: String;
   subtitle: String;
+
+  slide_one_form: FormGroup;
 
   user: {
     name: String,
@@ -37,7 +39,7 @@ export class HomePage {
     added: Boolean
   }>;
 
-  constructor() {
+  constructor(form_builder: FormBuilder) {
     this.gender_data = ['Female', 'Male', 'Other'];
     this.nationality_data = ['Chinese', 'English'];
 
@@ -70,6 +72,16 @@ export class HomePage {
       label: [],
       lifestyle: []
     };
+
+    this.slide_one_form = form_builder.group({
+      name: ['', Validators.required],
+      date_of_birth: ['', Validators.required],
+      gender: ['', Validators.required],
+      nationality: ['', Validators.required],
+      current_school: ['', Validators.required],
+      current_major: ['', Validators.required],
+      current_gpa: ['', Validators.required]
+    });
   }
 
   ngAfterViewInit() {
