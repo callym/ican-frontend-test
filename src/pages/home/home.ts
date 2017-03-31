@@ -93,4 +93,8 @@ export class HomePage {
     }
   }
 
+  print_user() {
+    var json_user = JSON.stringify(this.user, null, 2);
+    console.log(json_user);
+  }
 }
