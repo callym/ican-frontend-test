@@ -1,3 +1,77 @@
 page-home {
+  ion-toolbar {
+    & > .toolbar-background {
+      background-color: map-get($colors, primary);
+    }
+    ion-title > .toolbar-title {
+      color: map-get($colors, light);
+      text-align: center;
+    }
 
+    ion-title.title,
+    ion-title.subtitle {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    ion-title.title > .toolbar-title {
+      font-size: 1.5em;
+    }
+
+    ion-title.subtitle > .toolbar-title {
+      font-size: 1em;
+    }
+  }
+
+  ion-select {
+    flex-grow: 1;
+    max-width: 100%;
+  }
+
+  ion-label {
+    font-size: 0.8em;
+    font-weight: bolder;
+  }
+
+  #slide_one {
+    ion-select,
+    ion-input > input {
+      text-align: right;
+    }
+  }
+
+  #slide_two {
+    ion-col.input {
+      flex-grow: 1;
+      max-width: 100%;
+    }
+
+    ion-chip {
+      ion-icon {
+        color: map-get($colors, dark);
+        background-color: transparent;
+      }
+
+      ion-label {
+        margin-left: 0;
+      }
+
+      max-width: 100%;
+      width: 100%;
+      flex-grow: 1;
+
+      background-color: white;
+      border: 1px solid map-get($colors, light);
+      border-radius: 0.5em;
+
+      &.added {
+        border-color: transparentize(map-get($colors, primary), 0.5);
+        color: map-get($colors, primary);
+
+        ion-icon {
+          color: map-get($colors, primary);
+        }
+      }
+    }
+  }
 }

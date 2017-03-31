@@ -1,11 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
+    <ion-title class="title">
       {{ title }}
     </ion-title>
   </ion-toolbar>
   <ion-toolbar>
-    <ion-title>
+    <ion-title class="subtitle">
       {{ subtitle }}
     </ion-title>
   </ion-toolbar>
@@ -14,7 +14,7 @@
 <ion-content padding>
   <ion-slides #slider pager="true" (ionSlideWillChange)="onSlideChangeStart()">
     <!-- First Slide - (Basic Information) -->
-    <ion-slide>
+    <ion-slide id="slide_one">
       <form [formGroup]="slide_one_form">
         <ion-card>
           <ion-item>
@@ -89,19 +89,19 @@
     </ion-slide>
 
     <!-- Second Slide - (Labels & Lifestyle) -->
-    <ion-slide>
+    <ion-slide id="slide_two">
       <ion-card>
         <!-- Form section for Labels -->
         <form [formGroup]="slide_two_label" (ngSubmit)="addTagNewLabel()">
           <ion-grid>
             <ion-row>
               <ion-col col-4 *ngFor="let l of user.label">
-                <ion-chip (click)="removeTagLabel(l)">
+                <ion-chip (click)="removeTagLabel(l)" class="added">
                   <ion-icon name="close"></ion-icon>
                   <ion-label>{{ l }}</ion-label>
                 </ion-chip>
               </ion-col>
-              <ion-col col-8>
+              <ion-col col-8 class="input">
                 <ion-input
                   formControlName="label"
                   type="text"
@@ -129,12 +129,12 @@
           <ion-grid>
             <ion-row>
               <ion-col col-4 *ngFor="let l of user.lifestyle">
-                <ion-chip (click)="removeTagLifestyle(l)">
+                <ion-chip (click)="removeTagLifestyle(l)" class="added">
                   <ion-icon name="close"></ion-icon>
                   <ion-label>{{ l }}</ion-label>
                 </ion-chip>
               </ion-col>
-              <ion-col col-8>
+              <ion-col col-8 class="input">
                 <ion-input
                   formControlName="lifestyle"
                   type="text"
