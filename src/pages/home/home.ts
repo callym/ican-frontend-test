@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
+import { Slides } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
+  @ViewChild('slider') slider: Slides;
 
   title: String;
   subtitle: String;
@@ -36,7 +37,7 @@ export class HomePage {
     added: Boolean
   }>;
 
-  constructor(public navCtrl: NavController) {
+  constructor() {
     this.gender_data = ['Female', 'Male', 'Other'];
     this.nationality_data = ['Chinese', 'English'];
 
@@ -71,4 +72,7 @@ export class HomePage {
     };
   }
 
+  ngAfterViewInit() {
+    this.slider.lockSwipes(true);
+  }
 }
