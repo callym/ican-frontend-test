@@ -114,7 +114,7 @@
       <ion-grid>
         <ion-row>
           <ion-col col-4 *ngFor="let l of label_data">
-            <ion-chip>
+            <ion-chip (click)="addTagExistingLabel(l.name)" [hidden]="l.added">
               <ion-icon name="add"></ion-icon>
               <ion-label>{{ l.name }}</ion-label>
             </ion-chip>
@@ -146,7 +146,7 @@
       <ion-grid>
         <ion-row>
           <ion-col col-4 *ngFor="let l of lifestyle_data">
-            <ion-chip>
+            <ion-chip (click)="addTagExistingLifestyle(l.name)" [hidden]="l.added">
               <ion-icon name="add"></ion-icon>
               <ion-label>{{ l.name }}</ion-label>
             </ion-chip>

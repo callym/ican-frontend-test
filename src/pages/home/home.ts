@@ -145,4 +145,16 @@ export class HomePage {
     this.print_user();
     this.do_slide(false);
   }
+
+  addTagExisting(name: String, p: String) {
+    for (var l in this[`${p}_data`]) {
+      if (this[`${p}_data`][l].name === name) {
+        this[`${p}_data`][l].added = true;
+        this.user[`${p}`].push(name);
+      }
+    }
+  }
+
+  addTagExistingLabel = (name) => this.addTagExisting(name, 'label');
+  addTagExistingLifestyle = (name) => this.addTagExisting(name, 'lifestyle');
 }
