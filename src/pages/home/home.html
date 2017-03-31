@@ -15,6 +15,59 @@
   <ion-slides #slider pager="true" (ionSlideWillChange)="onSlideChangeStart()">
     <!-- First Slide - (Basic Information) -->
     <ion-slide>
+      <form>
+        <ion-card>
+          <ion-item>
+            <ion-label fixed>Name</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+        </ion-card>
+        <ion-card>
+          <ion-item>
+            <ion-label>DOB</ion-label>
+            <ion-datetime
+              displayFormat="DD/MM/YYYY"
+              pickerFormat="DD MMMM YYYY">
+            </ion-datetime>
+          </ion-item>
+        </ion-card>
+        <ion-card>
+          <ion-item>
+            <ion-label fixed>Gender</ion-label>
+            <ion-select>
+            </ion-select>
+          </ion-item>
+        </ion-card>
+        <ion-card>
+          <ion-item>
+            <ion-label fixed>Nationality</ion-label>
+            <ion-select>
+            </ion-select>
+          </ion-item>
+        </ion-card>
+        <ion-card>
+          <ion-item>
+            <ion-label fixed>Current School</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+        </ion-card>
+        <ion-card>
+          <ion-item>
+            <ion-label fixed>Current Major</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+        </ion-card>
+        <ion-card>
+          <ion-item>
+            <ion-label fixed>Current GPA</ion-label>
+            <!-- not sure what range a GPA goes,
+              so this is just what I'd consider
+              a sensible limit -->
+            <ion-input type="number" min="0" max="100"></ion-input>
+          </ion-item>
+        </ion-card>
+      </form>
+      <button ion-button large block>Continue</button>
     </ion-slide>
 
     <!-- Second Slide - (Labels & Lifestyle) -->
