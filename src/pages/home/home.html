@@ -35,6 +35,9 @@
           <ion-item>
             <ion-label fixed>Gender</ion-label>
             <ion-select>
+              <ion-option *ngFor="let g of gender_data" value="{{ g }}">
+                {{ g }}
+              </ion-option>
             </ion-select>
           </ion-item>
         </ion-card>
@@ -42,6 +45,9 @@
           <ion-item>
             <ion-label fixed>Nationality</ion-label>
             <ion-select>
+              <ion-option *ngFor="let n of nationality_data" value="{{ n }}">
+                {{ n }}
+              </ion-option>
             </ion-select>
           </ion-item>
         </ion-card>
