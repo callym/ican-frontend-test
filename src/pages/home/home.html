@@ -90,6 +90,69 @@
 
     <!-- Second Slide - (Labels & Lifestyle) -->
     <ion-slide>
+      <ion-card>
+        <!-- Form section for Labels -->
+        <form>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-4 *ngFor="let l of user.label">
+                <ion-chip>
+                  <ion-icon name="close"></ion-icon>
+                  <ion-label>{{ l }}</ion-label>
+                </ion-chip>
+              </ion-col>
+              <ion-col col-8>
+                <ion-input
+                  type="text"
+                  placeholder="Choose your own label...">
+                </ion-input>
+              </ion-col>
+          </ion-row>
+          </ion-grid>
+        </form>
+      </ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4 *ngFor="let l of label_data">
+            <ion-chip>
+              <ion-icon name="add"></ion-icon>
+              <ion-label>{{ l.name }}</ion-label>
+            </ion-chip>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <!-- Form section for Lifestyles -->
+      <ion-card>
+        <form>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-4 *ngFor="let l of user.lifestyle">
+                <ion-chip>
+                  <ion-icon name="close"></ion-icon>
+                  <ion-label>{{ l }}</ion-label>
+                </ion-chip>
+              </ion-col>
+              <ion-col col-8>
+                <ion-input
+                  type="text"
+                  placeholder="Choose your preferred lifestyle...">
+                </ion-input>
+              </ion-col>
+          </ion-row>
+          </ion-grid>
+        </form>
+      </ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4 *ngFor="let l of lifestyle_data">
+            <ion-chip>
+              <ion-icon name="add"></ion-icon>
+              <ion-label>{{ l.name }}</ion-label>
+            </ion-chip>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-slide>
   </ion-slides>
 </ion-content>
